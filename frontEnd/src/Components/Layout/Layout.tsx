@@ -1,13 +1,28 @@
 import React from 'react';
-import { Button } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { Space, Menu } from 'antd';
+import { items } from './MenuItems';
+import { useNavigate } from 'react-router-dom';
 
 export const Dashboard = () => {
+    const navigate = useNavigate();
   return (
-    <div className='border border-white w-[100%]'>
-      <Button type="primary" icon={<SmileOutlined />}>
-        Dashboard
-      </Button>
+    <div className="flex">
+      <Menu
+        onClick={({ key })=>{
+            navigate(key);
+        }}
+        defaultSelectedKeys={[window.location.pathname]}
+        items={items}
+      ></Menu>
+      <Content />
     </div>
   );
+}
+
+const Content = () => {
+    return (
+        <div>
+            Content
+        </div>
+    )
 }

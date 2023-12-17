@@ -4,13 +4,14 @@ import { routeNames } from './RouteName';
 import { Components } from './RouteComponent';
 
 export const RouterPage = () => {
-  const { Login, Dashboard } = Components;
+  const { Login, Dashboard, Profile } = Components;
   return (
     <BrowserRouter>
       <Routes >
         <Route path={routeNames.login} element={<Login />} />
         <Route path="/" element={<Navigate replace={true} to={routeNames.dashboard} />} />
         <Route path='/:dashboard' element={<Dashboard />} />
+        <Route path={routeNames.profile} element={<Profile />} />
         {/* <Route path='/:dashboard' element={<AuthHOC children={<Dashboard />} />} /> */}
         {/* <Route path='/:dashboard/:page' element={<AuthHOC children={<Dashboard />} />} /> */}
         {/* <Route path='/:dashboard/:page/:id' element={<AuthHOC children={<Dashboard />} />} /> */}

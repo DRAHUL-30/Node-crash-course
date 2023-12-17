@@ -1,6 +1,8 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { ConfigProvider } from 'antd';
+import logo from "./logo.svg";
+import "./App.css";
+import "./index.css";
+import { ConfigProvider } from "antd";
 import { RouterPage } from "./Components/Features/Routes/RouterPage";
 
 const App = () => {
