@@ -21,7 +21,7 @@ export const Layout = ({ children }: LayoutProps) => {
             items={items}
             style={{ width: "15%", padding: "2px 0", fontSize: '17px' }}
           ></Menu>
-          <div className='p-2'>{children}</div>
+          <div className='p-2 w-[85%]'>{children}</div>
         </div>
       </WrapperComponent>
     );
