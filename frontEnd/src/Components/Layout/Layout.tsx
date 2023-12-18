@@ -2,6 +2,7 @@ import React from 'react';
 import { Space, Menu } from 'antd';
 import { items } from './MenuItems';
 import { useNavigate } from 'react-router-dom';
+import { WrapperComponent } from '../Sections/WrapperComponent/WrapperComponent';
 
 interface LayoutProps{
     children:React.ReactElement
@@ -9,17 +10,19 @@ interface LayoutProps{
 
 export const Layout = ({ children }: LayoutProps) => {
   const navigate = useNavigate();
-  return (
-    <div className="flex">
-      <Menu
-        onClick={({ key }) => {
-          navigate(key);
-        }}
-        defaultSelectedKeys={[window.location.pathname]}
-        items={items}
-        style={{ width: "15%", padding: "10px 0" }}
-      ></Menu>
-      {children}
-    </div>
-  );
+    return (
+      <WrapperComponent>
+        <div className="h-[86%] flex">
+          <Menu
+            onClick={({ key }) => {
+              if(key!=="/signout") navigate(key);
+            }}
+            defaultSelectedKeys={[window.location.pathname]}
+            items={items}
+            style={{ width: "15%", padding: "2px 0", fontSize: '17px' }}
+          ></Menu>
+          <div className='p-2'>{children}</div>
+        </div>
+      </WrapperComponent>
+    );
 };
