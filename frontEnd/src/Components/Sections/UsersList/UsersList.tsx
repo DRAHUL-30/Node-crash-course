@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { Table, Modal, Layout, Flex } from 'antd';
+import { Table, Modal, Button, Input } from 'antd';
+import { UserAddOutlined } from '@ant-design/icons';
 import { ColumnData } from './Columns';
+import { UserModal } from './UserModal';
 
 export const UsersList = () => {
-    const { Header, Footer, Sider, Content } = Layout;
+    const [isAdded, setIsAdded] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [addingStudent, setAddingStudent] = useState(null as any);
+    const [editingStudent, setEditingStudent] = useState(null as any);
     const [dataSource, setDataSource] = useState([
         {
             id: 1,
@@ -31,8 +36,11 @@ export const UsersList = () => {
         },
     ]);
 
+    const onAddStudent = (record:any) => {} 
+
     const onEditStudent = (record: any) => {
-        console.log(record, "EDIT");
+        setIsEditing(true);
+        setEditingStudent({ ...record });
     }
 
     const onDeleteStudent = (record: any) => {
@@ -50,18 +58,46 @@ export const UsersList = () => {
     
     const columns = ColumnData(onEditStudent, onDeleteStudent);
 
+    const resetEditing = () => {
+        setIsEditing(false);
+        setEditingStudent(null)
+    }
+
   return (
     <div className="w-[95%] mx-auto space-y-4">
-      <h1 className="bg-white text-[24px] px-2 py-3 text-[#a02669]">Users Table List</h1>
+      <div className="flex gap-4 items-center">
+        <h1 className="bg-white text-[24px] px-2 py-3 text-[#a02669]">
+          Users Table List
+        </h1>
+        <Button
+          type="dashed"
+          className="text-blue-500"
+          icon={<UserAddOutlined />}
+          size="large"
+          onClick={() => setIsAdded(true)}
+        >
+          Add User
+        </Button>
+        <UserModal
+          title={"Add Student"}
+          isVisible={isAdded}
+          setIsVisible={setIsAdded}
+          cancelFunc={()=>setIsAdded(false)}
+          dataFunc={setDataSource}
+          showData={addingStudent}
+          setShowData={setAddingStudent}
+        />
+      </div>
       <Table columns={columns} dataSource={dataSource} />
+      <UserModal
+        title={"Edit Student"}
+        isVisible={isEditing}
+        setIsVisible={setIsEditing}
+        cancelFunc={resetEditing}
+        dataFunc={setDataSource}
+        showData={editingStudent}
+        setShowData={setEditingStudent}
+      />
     </div>
-    // <Flex gap="middle" vertical>
-    //   <Layout className="space-y-4">
-    //     <Header className="bg-white text-[22px] border">
-    //       Users Table List
-    //     </Header>
-    //     <Table columns={columns} dataSource={dataSource} />
-    //   </Layout>
-    // </Flex>
   );
 }
