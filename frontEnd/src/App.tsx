@@ -1,11 +1,22 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, notification } from "antd";
 import { RouterPage } from "./Components/Features/Routes/RouterPage";
 
 const App = () => {
+  const [someCondition, setSomeCondition] = useState(false);
+
+  useEffect(() => {
+    if (someCondition) {
+      notification.info({
+        message: 'Welcome!',
+        description: "Thanks for visiting our website.",
+      });
+    }
+    setSomeCondition(true);
+  }, [someCondition]);
+
   return (
     <ConfigProvider
       theme={{

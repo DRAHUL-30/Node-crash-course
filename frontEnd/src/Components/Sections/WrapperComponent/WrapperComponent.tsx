@@ -6,7 +6,7 @@ interface WrapperComponentProps {
 
 export const WrapperComponent = ({ children }: WrapperComponentProps) => {
   return(
-    <div className="h-[100vh] flex flex-col justify-between">
+    <div className="h-[100vh] flex flex-col justify-between bg-slate-800">
         <Header />
         {children}
         <Footer />

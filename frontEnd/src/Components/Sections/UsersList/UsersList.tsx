@@ -66,7 +66,7 @@ export const UsersList = () => {
   return (
     <div className="w-[95%] mx-auto space-y-4">
       <div className="flex gap-4 items-center">
-        <h1 className="bg-white text-[24px] px-2 py-3 text-[#a02669]">
+        <h1 className="text-[24px] px-2 py-3 text-[#a02669]">
           Users Table List
         </h1>
         <Button
@@ -88,7 +88,7 @@ export const UsersList = () => {
           setShowData={setAddingStudent}
         />
       </div>
-      <Table columns={columns} dataSource={dataSource} />
+      <Table columns={columns} dataSource={dataSource} className='bg-slate-100 rounded-lg' />
       <UserModal
         title={"Edit Student"}
         isVisible={isEditing}
