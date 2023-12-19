@@ -5,7 +5,7 @@ import { Components } from './RouteComponent';
 import { Layout } from '../../Layout/Layout';
 
 export const RouterPage = () => {
-  const { Login, Dashboard, Profile, Settings, UsersList } = Components;
+  const { Login, Dashboard, Profile, Settings, UsersList, Uploads } = Components;
   return (
     <BrowserRouter>
       <Routes >
@@ -14,6 +14,7 @@ export const RouterPage = () => {
         <Route path={routeNames.dashboard} element={<Layout children={<Dashboard />} />} />
         <Route path={routeNames.userslist} element={<Layout children={<UsersList /> } />} />
         <Route path={routeNames.profile} element={<Layout children={<Profile />} />} />
+        <Route path={routeNames.Uploads} element={<Layout children={<Uploads />} />} />
         <Route path={routeNames.settings} element={<Layout children={<Settings /> } />} />
         {/* <Route path='/:dashboard' element={<Dashboard />} /> */}
         {/* <Route path='/:dashboard' element={<AuthHOC children={<Dashboard />} />} /> */}

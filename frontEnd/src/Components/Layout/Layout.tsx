@@ -15,13 +15,13 @@ export const Layout = ({ children }: LayoutProps) => {
         <div className="h-[86%] flex">
           <Menu
             onClick={({ key }) => {
-              if(key!=="/signout") navigate(key);
+              if (key !== "/signout") navigate(key);
             }}
             defaultSelectedKeys={[window.location.pathname]}
             items={items}
-            style={{ width: "15%", padding: "2px 0", fontSize: '17px' }}
+            style={{ width: "15%", padding: "2px 0", fontSize: "17px" }}
           ></Menu>
-          <div className='p-2 w-[85%]'>{children}</div>
+          <div className="p-2 w-[85%] scroll-smooth overflow-y-scroll scrollbar-hide">{children}</div>
         </div>
       </WrapperComponent>
     );

@@ -3,5 +3,6 @@ export const routeNames = {
   dashboard: "/dashboard",
   profile: "/profile",
   settings: "/settings",
-  userslist: "/userslist"
+  userslist: "/userslist",
+  Uploads: "/Uploads"
 };
