@@ -4,6 +4,10 @@ import "./index.css";
 import { ConfigProvider, notification } from "antd";
 import { RouterPage } from "./Components/Features/Routes/RouterPage";
 
+//* useMemo, useContext, useReducer, Redux *//
+//* Create More Common Hooks *//
+//* Folder Structure *//
+
 const App = () => {
   const [someCondition, setSomeCondition] = useState(false);
 

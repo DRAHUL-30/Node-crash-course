@@ -69,7 +69,7 @@ const Footer = () => {
         key={item.id}
         target={"_blank"}
         href={item?.link}
-        style={{ fontSize: "18px", color: "black" }}
+        style={{ fontSize: "18px", color: "#112a45" }}
       >
         {item?.link_name}
       </Typography.Link>
