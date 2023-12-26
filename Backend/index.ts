@@ -1,4 +1,5 @@
 import type { Application, NextFunction, Request, Response } from "express";
+import { Connection } from "./Configs/Connection";
 const morgan = require("morgan");
 
 const express = require("express");
@@ -7,6 +8,8 @@ const cors = require("cors");
 const MorganLogs = require("morgan");
 
 const Port = 8080;
+
+Connection();
 
 app.use(express.json());
 app.use(cors());
