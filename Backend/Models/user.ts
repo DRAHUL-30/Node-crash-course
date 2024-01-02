@@ -18,9 +18,9 @@ User.init({
   modelName: 'User' // We need to choose the model name
 });
 
-User.sync({ alter: true });
+// User.sync({ force: true });
 
-export { User };
+export default User
 
 
 

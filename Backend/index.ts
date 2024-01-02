@@ -7,10 +7,9 @@ const app: Application = express();
 const cors = require("cors");
 const MorganLogs = require("morgan");
 
-const Port = 8080;
-
 Connection();
 
+const Port = 8080;
 app.use(express.json());
 app.use(cors());
 
