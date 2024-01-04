@@ -1,6 +1,7 @@
-import { asyncHandler } from "../Handlers/Response";
+import { createUsers, readUsers } from "../Controllers/Users";
+import express from "express";
 
-const express = require("express");
 const UserRouter = express.Router();
 
-// UserRouter.route('/users').get(asyncHandler())
+UserRouter.route('/users').get(readUsers).post(createUsers);
+export default UserRouter;

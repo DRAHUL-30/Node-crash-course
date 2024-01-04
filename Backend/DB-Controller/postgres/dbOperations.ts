@@ -1,6 +1,8 @@
-export const readData = async (Model: any, queryCondition: any = {}) => {
+
+// queryCondition: any = {}
+export const readData = async (Model: any) => {
     try {
-        const foundData = await Model.findAll(queryCondition);
+        const foundData = await Model.findAll();
         return foundData;
     } catch (error: any) {
         console.log(error)
