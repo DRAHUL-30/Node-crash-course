@@ -4,4 +4,6 @@ import UserRouter from "./users";
 const express = require("express");
 const MainRouter: Application = express();
 
-MainRouter.use("/users", UserRouter);
+MainRouter.use("/", UserRouter);
+
+export { MainRouter };

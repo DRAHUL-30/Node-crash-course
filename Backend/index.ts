@@ -1,5 +1,6 @@
 import type { Application, NextFunction, Request, Response } from "express";
 import { Connection } from "./Configs/Connection";
+import { MainRouter } from "./Routes/router";
 const morgan = require("morgan");
 
 const express = require("express");
@@ -16,10 +17,7 @@ app.use(cors());
 // Use a custom log format
 app.use(MorganLogs("dev"));
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, TypeScript and Express!");
-});
-
+app.use("/", MainRouter);
 
 app.listen(Port, () => {
     console.log("Server running at ",Port);
