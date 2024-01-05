@@ -33,11 +33,15 @@ export const updateUsers = async (req: Request, res: Response) => {
     try {
         const { ...rest } = req.body;
         console.log(req.body, "body_data");
+        if (!rest.id) {
+            return res.status(400).json({ message: 'User ID is required for updating.' });
+        }
         const userUpdatedResponse = await userUpdation({ ...rest });
-        // Handle the userCreatedResponse or send a response to the client
+        // Handle the userUpdatedResponse or send a response to the client
         res.status(200).json({ message: 'User updated successfully', user: userUpdatedResponse });
     } catch (error) {
-        console.error('Error creating user:', error);
+        console.error('Error updating user:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+

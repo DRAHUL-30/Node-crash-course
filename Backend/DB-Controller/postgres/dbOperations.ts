@@ -17,6 +17,7 @@ export const insertData = async (data: any, Model: any, options: { [key: string]
 };
 
 export const updateData = async (data: any, Model: any, whereCondition: any = {}) => {
+    console.log(data, "DATA", whereCondition, "whereCondition")
   try {
     return await Model.update(data, {
             where: whereCondition,

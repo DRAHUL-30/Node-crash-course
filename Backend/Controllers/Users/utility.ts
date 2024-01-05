@@ -29,9 +29,16 @@ export const userCreation = async (userData: userCreationProps): Promise<User | 
     }
 }
 
-export const userUpdation = async (userData: userCreationProps): Promise<User | null> => {
+export const userUpdation = async (userData: userCreationProps & { id: number }): Promise<User | null> => {
     try {
-        const userUpdatedData = await updateData(userData, User, {id: userData?.id});
+        const { id, ...rest } = userData;
+        console.log(id, "id_")
+        const userUpdatedData = await updateData(rest, User,
+            {
+                where: {
+                id: id
+                }
+            });
         return userUpdatedData;
     } catch (error) {
         console.log(error);
