@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
-import { InsertData } from '../../DB-Controller/postgres/dbOperations';
-import { userCreation, readUserData } from './utility';
+import { userCreation, readUserData, userUpdation } from './utility';
 
 export const readUsers = async (req: Request, res: Response) => {
     try {
@@ -24,6 +23,19 @@ export const createUsers = async (req: Request, res: Response) => {
         const userCreatedResponse = await userCreation({ ...rest });
         // Handle the userCreatedResponse or send a response to the client
         res.status(200).json({ message: 'User created successfully', user: userCreatedResponse });
+    } catch (error) {
+        console.error('Error creating user:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+export const updateUsers = async (req: Request, res: Response) => {
+    try {
+        const { ...rest } = req.body;
+        console.log(req.body, "body_data");
+        const userUpdatedResponse = await userUpdation({ ...rest });
+        // Handle the userCreatedResponse or send a response to the client
+        res.status(200).json({ message: 'User updated successfully', user: userUpdatedResponse });
     } catch (error) {
         console.error('Error creating user:', error);
         res.status(500).json({ message: 'Internal server error' });
