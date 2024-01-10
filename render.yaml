@@ -1,16 +1,12 @@
 services:
   - name: frontend
     type: web
-    buildCommand: npm install && npm run build
-    startCommand: npm run dev
-    env:
-      - key: NODE_ENV
-        value: production
+    buildCommand: npm run build
+    startCommand: npm start
+    root: ./
 
-  - name: backend
+  - name: Backend
     type: web
-    buildCommand: npm install && npm run build
-    startCommand: npm run dev
-    env:
-      - key: NODE_ENV
-        value: production
+    buildCommand: npm run build
+    startCommand: npm start
+    root: ./
