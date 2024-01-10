@@ -21,7 +21,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build",
     "prepare": "npm run build",
     "preview": "vite preview"
   },
