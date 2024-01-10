@@ -9,4 +9,4 @@ services:
     type: web
     buildCommand: npm run build
     startCommand: npm start
-    root: ./backend
+    root: ./Backend
