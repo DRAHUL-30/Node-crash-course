@@ -3,10 +3,10 @@ services:
     type: web
     buildCommand: npm run build
     startCommand: npm start
-    root: ./
+    root: ./frontend
 
   - name: Backend
     type: web
     buildCommand: npm run build
     startCommand: npm start
-    root: ./
+    root: ./backend
