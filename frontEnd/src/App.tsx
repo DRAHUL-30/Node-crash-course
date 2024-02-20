@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     if (someCondition && window.navigator.onLine) {
-      notification.info({
+      notification.open({
         message: 'Welcome!',
         description: "Thanks for visiting our website.",
       });
